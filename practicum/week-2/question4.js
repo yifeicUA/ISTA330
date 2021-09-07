@@ -12,13 +12,10 @@ The letters in A are guaranteed distinct, and all characters in A and B are lett
 
 var howManyCommon = function(A, B) {
     let intersection = 0;
-    let string1 = A.toLowerCase();
-    let string2 = B.toLowerCase();
-    for (var i = 0; i < string1.length; i++) {
-        for (var j = 0; j < string2.length; j++) {
-            if (string1[i]==string2[j]){
-                intersection++;
-                break;
+    for (var i = 0; i < A.length; i++) {
+        for (var j = 0; j < B.length; j++) {
+            if (A[i]==B[j]){
+                intersection+=1;
             }
         }
     }
