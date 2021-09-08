@@ -27,5 +27,5 @@ var maxBalanceNumber = function(input) {
       result++;
     }
   }
-
+  return result;
 };
