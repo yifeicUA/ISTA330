@@ -17,7 +17,7 @@ var maxMinusMin = function(n) {
         if(n%10 < minnum){
             minnum = n%10;
         }
-        n = n/10;
+        n = parseInt(n/10);
     }
     if(n > maxnum){
         maxnum = n;
