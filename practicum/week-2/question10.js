@@ -19,11 +19,11 @@ var maxMinusMin = function(n) {
         }
         n = n/10;
     }
-    if(n%10 > maxnum){
-        maxnum = n%10;
+    if(n > maxnum){
+        maxnum = n;
     }
-    if(n%10 < minnum){
-        minnum = n%10;
+    if(n < minnum){
+        minnum = n;
     }
     return maxnum - minnum;
 };
