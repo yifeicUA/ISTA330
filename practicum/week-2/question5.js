@@ -14,11 +14,12 @@ output: 3
 var minimalReduction = function(n) {
     let nonnegative = n;
     let operations = 0;
-    while(((nonnegative/4)%1)===0){
+    //while(((nonnegative/4)%1)===0){
+    while(isInteger(nonnegative)){
         operations++;
         nonnegative = nonnegative/4;
     }
-    while(((nonnegative/3)%1)===0){
+    while(isInteger(nonnegative)){
         operations++;
         nonnegative = nonnegative/3;
     }
@@ -29,3 +30,6 @@ var minimalReduction = function(n) {
     return operations;
 };
 
+function isInteger(obj) {
+    return typeof obj === 'number' && obj % 1 === 0
+}
