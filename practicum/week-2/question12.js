@@ -55,10 +55,10 @@ var maxBalanceNumber = function(input) {
   let numcount = 0;
   let result = 0;
   for (let i = 0; i < input.length; i++) {
-    if(input[i] == "a"){
+    if(input[i] == "a"&&numcount<=0){
       numcount++;
-    }else{
-      numcount--;
+    }else if(input[i] == "b"&&numcount>=0){
+        numcount--;
     }
     if(numcount == 0){
       result++;
