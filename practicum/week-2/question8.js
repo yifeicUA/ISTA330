@@ -18,4 +18,5 @@ var biggerAndEven = function(input) {
         }
         sumarray[i]=targetnum;
     }
-};
+    return sumarray;
+}
