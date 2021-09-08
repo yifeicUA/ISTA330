@@ -33,6 +33,7 @@ output: 4 because the following partition has the highest number of balanced sub
 var maxBalanceNumber = function(input) {
   let numcount = 0;
   let result = 0;
+  const maxnum = Array();
   for (let i = 0; i < input.length; i++) {
     numcount = 0;
     for (let j = 0; j < input.length; j++) {
@@ -43,10 +44,9 @@ var maxBalanceNumber = function(input) {
       }
       if(j-i >0 && numcount == 0){
         result++;
-        i = j;
-        break;
       }
     }
+    maxnum.push(result);
   }
-  return result;
+  return Math.max(...maxnum);
 };
