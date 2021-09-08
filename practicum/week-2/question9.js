@@ -9,5 +9,14 @@ output: 'hello'
 */
 
 var suffleString = function(input, shuffleIndices) {
-
+    let astring = input;
+    let newsting = '';
+    let sumarray = new Array(input.length+1);
+    for (let i = 0; i < shuffleIndices.length; i++) {
+        sumarray[i] = astring[shuffleIndices[i]];
+    }
+    for (let j = 0; j < sumarray.length; j++) {
+        newsting+=sumarray[i];
+    }
+    return newsting;
 };
