@@ -13,23 +13,39 @@ input: 'abaabbabab'
 output: 4 because the following partition has the highest number of balanced substrings:
           'ab', 'aabb', 'ab', 'ab'
 */
-
-var maxBalanceNumber = function(input) {
-  if(input.length == 0){
-    return 0;
-  }
-  let numcountA = 0;
-  let numcountB = 0;
+/*
+*OLD SOLUTION
+ let numcount = 0;
   let result = 0;
   for (let i = 0; i < input.length; i++) {
     if(input[i] == "a"){
-      numcountA++;
+      numcount++;
     }else{
-      numcountB--;
+      numcount--;
     }
-    if(numcountA == 1){
+    if(numcount == 0){
       result++;
     }
+  }
+*  return result
+*/
+
+var maxBalanceNumber = function(input) {
+  let numcount = 0;
+  let result = 0;
+  for (let i = 0; i < input.length; i++) {
+    numcount = 0;
+    for (let j = 0; j < input.length; j++) {
+      if(input[i] == "a"){
+        numcount++;
+      }else{
+        numcount--;
+      }
+      if(j-i >0 && numcount == 0){
+        result++;
+        i = j;
+        break;
+      }
   }
   return result;
 };
