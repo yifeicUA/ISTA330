@@ -20,7 +20,7 @@ var minimalReduction = function(n) {
         operations++;
         nonnegative = nonnegative/4;
     }
-    while((nonnegative%4)===0){
+    while((nonnegative%3)===0){
         operations++;
         nonnegative = nonnegative/3;
     }
