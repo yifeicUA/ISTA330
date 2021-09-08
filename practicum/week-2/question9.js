@@ -16,7 +16,7 @@ var suffleString = function(input, shuffleIndices) {
         sumarray[i] = astring[shuffleIndices[i]];
     }
     for (let j = 0; j < sumarray.length; j++) {
-        newsting+=sumarray[i];
+        newsting+=sumarray[j];
     }
     return newsting;
 };
