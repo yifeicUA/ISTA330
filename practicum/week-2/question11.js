@@ -16,7 +16,7 @@ var decode = function(input) {
         if(i%2 != 0){
             while(times!=0){
                 result.push(input[i]);
-                timea--;
+                times--;
             }
         }else{
             times = input[i];
