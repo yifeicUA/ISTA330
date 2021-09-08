@@ -36,7 +36,7 @@ var maxBalanceNumber = function(input) {
   for (let i = 0; i < input.length; i++) {
     numcount = 0;
     for (let j = 0; j < input.length; j++) {
-      if(input[i] == "a"){
+      if(input[j] == "a"){
         numcount++;
       }else{
         numcount--;
