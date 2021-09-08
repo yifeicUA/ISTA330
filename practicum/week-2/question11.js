@@ -10,5 +10,17 @@ output: [5, 5, 2, 2, 2, 2]
 */
 
 var decode = function(input) {
-
+    let times = 0;
+    let result = new Array();
+    for (let i = 0; i < input.length; i++) {
+        if(i%2 != 0){
+            while(times!=0){
+                result.push(input[i]);
+                timea--;
+            }
+        }else{
+            times = input[i];
+        }
+    }
+    return result;
 };
