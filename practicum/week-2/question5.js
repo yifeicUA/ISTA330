@@ -15,11 +15,12 @@ var minimalReduction = function(n) {
     let nonnegative = n;
     let operations = 0;
     //while(((nonnegative/4)%1)===0){
-    while(isInteger(nonnegative)){
+    //while(isInteger(nonnegative)){
+    while((nonnegative%4)===0){
         operations++;
         nonnegative = nonnegative/4;
     }
-    while(isInteger(nonnegative)){
+    while((nonnegative%4)===0){
         operations++;
         nonnegative = nonnegative/3;
     }
@@ -30,6 +31,8 @@ var minimalReduction = function(n) {
     return operations;
 };
 
+/*
 function isInteger(obj) {
     return typeof obj === 'number' && obj % 1 === 0
 }
+*/
