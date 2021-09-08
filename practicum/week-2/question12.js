@@ -29,10 +29,11 @@ output: 4 because the following partition has the highest number of balanced sub
   }
 *  return result
 */
-
-var maxBalanceNumber = function(input) {
-  let numcount = 0;
+/*
+*OLD SOLUTION2
+ let numcount = 0;
   let result = 0;
+  const maxnum = Array(input.length);
   for (let i = 0; i < input.length; i++) {
     numcount = 0;
     for (let j = i; j < input.length; j++) {
@@ -43,10 +44,25 @@ var maxBalanceNumber = function(input) {
       }
       if(j-i >0 && numcount == 0){
         result++;
-        i = j;
-        break;
       }
     }
+    maxnum.push(result);
   }
-  return result;
+  return Math.max(...maxnum);
+*/
+
+var maxBalanceNumber = function(input) {
+  let numcount = 0;
+  let result = 0;
+  for (let i = 0; i < input.length; i++) {
+    if(input[i] == "a"){
+      numcount++;
+    }else{
+      numcount--;
+    }
+    if(numcount == 0){
+      result++;
+    }
+  }
+  return result
 };
