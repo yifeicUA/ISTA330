@@ -46,6 +46,7 @@ var maxBalanceNumber = function(input) {
         i = j;
         break;
       }
-  }
+    }
   return result;
+  }
 };
