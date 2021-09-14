@@ -16,16 +16,16 @@ output: [[-5, -4], [23, 24]]
 */
 
 var minPairs = function(input) {
-    let diff = Number.POSITIVE_INFINITY;
+    let mindiff = Number.POSITIVE_INFINITY;
     let newM = new Array();
     for (let i=0; i<input.length-1; i++){
         for (let j=i+1; j<input.length; j++){
-            if (Math.abs((input[i] - input[j]) )< diff){
-                diff = Math.abs((input[i] - input[j]));
+            if (Math.abs((input[i] - input[j]))< mindiff){
+                mindiff = Math.abs((input[i] - input[j]));
                 newM = new Array();
                 newM.push([input[i],input[j]].sort());
             }
-            else if(Math.abs((input[i] - input[j]) ) == diff){
+            else if(Math.abs((input[i] - input[j]) ) == mindiff){
                 newM.push([input[i],input[j]].sort());
             }
         }
