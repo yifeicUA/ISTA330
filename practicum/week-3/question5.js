@@ -24,13 +24,13 @@ var isMonotonic = function(input) {
     sortedarray = sortedarray.sort(function(a,b){
         return a-b;
     })
-    if(sortedarray ==input ){
+    if(sortedarray.toString() ==input.toString()){
         return true;
     }
     sortedarray.sort(function(a,b){
         return b-a;
     })
-    if(sortedarray ==input ){
+    if(sortedarray.toString() ==input.toString()){
         return true;
 
     }
