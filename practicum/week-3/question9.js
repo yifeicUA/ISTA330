@@ -13,17 +13,21 @@ so there are two groups with the largest size.
 */
 
 var largestGroupsCount = function(n) {
-    let map = new Map();
-    let max = 1, maxCount = 0;
+    let numM = new Map();
+    let largest = 1, largestS = 0;
     for(let i = 1; i <= n; i++){
         let sum = summer(i);
-        sumCount = map.get(sum)+1 || 1;
-        map.set(sum, sumCount);
-        if(sumCount === max)maxCount++;
-        else if(sumCount > max)maxCount = 1;
-        max = Math.max(max, sumCount);
+        curr = numM.get(sum)+1 || 1;
+        numM.set(sum, curr);
+        if(curr === largest){
+            largestS++;
+        }
+        else if(curr > largest){
+            largestS = 1;
+        }
+        largest = Math.max(largest, curr);
     }
-    return maxCount;
+    return largestS;
 };
 
 function summer(num){
