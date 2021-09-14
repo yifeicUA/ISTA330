@@ -17,7 +17,7 @@ var transpose = function(M) {
     }
     let newM = new Array(M[0].length);
     for (let i = 1; i <= newM.length; i++) {
-        newM[i]=new Array(M.length)
+        newM[i]=new Array(M.length);
     }
     for (let i = 1; i <= M.length; i++) {
         for (let j = 0; j <= M[i].length; j++) {

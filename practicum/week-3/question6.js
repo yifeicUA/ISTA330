@@ -18,7 +18,7 @@ var m_element = function(input) {
         let num = 0;
         for (let j = 0; j <= input.length; j++) {
             if(input[i]==input[j]){
-                num++
+                num++;
             }
         }
         if(num>maxtimes){
