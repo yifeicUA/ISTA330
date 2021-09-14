@@ -13,7 +13,6 @@ output: 3
 */
 
 var d_integer = function(input) {
-    /*
     for (let i = 0; i < input.length; i++) {
         let num = 0;
         let maxtimes = 0;
@@ -29,9 +28,8 @@ var d_integer = function(input) {
         }
         num = 0;
     }
-    if(maxtimes<=1){
+    if(maxtimes<2){
         return -1;
     }
     return maxtimes;
-    */
 };
