@@ -17,10 +17,10 @@ var transpose = function(M) {
         return [];
     }
     let newM = new Array(M[0].length);
-    for (let i = 1; i <= newM.length; i++) {
+    for (let i = 0; i <= newM.length; i++) {
         newM[i]=new Array(M.length);
     }
-    for (let i = 1; i <= M.length; i++) {
+    for (let i = 0; i <= M.length; i++) {
         for (let j = 0; j <= M[i].length; j++) {
             newM[j][i]=M[i][j];
         }
