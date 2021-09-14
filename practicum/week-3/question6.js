@@ -27,7 +27,7 @@ var m_element = function(input) {
         }
         num = 0;
     }
-    if(maxNum<=1){
+    if(maxtimes<=1){
         return -1;
     }
     return maxNum;
