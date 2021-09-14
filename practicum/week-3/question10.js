@@ -23,12 +23,16 @@ var minPairs = function(input) {
             if (Math.abs((input[i] - input[j]))< mindiff){
                 mindiff = Math.abs((input[i] - input[j]));
                 newM = new Array();
-                newM.push([input[i],input[j]].sort());
+                newM.push([input[i],input[j]].sort(function(a,b){
+                    return a-b;
+                }));
             }
             else if(Math.abs((input[i] - input[j]) ) == mindiff){
-                newM.push([input[i],input[j]].sort());
+                newM.push([input[i],input[j]].sort(function(a,b){
+                    return a-b;
+                }));
             }
         }
     }
-    return newM;
+    return newM.sort();
 };
