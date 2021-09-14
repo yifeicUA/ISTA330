@@ -12,6 +12,7 @@ output: [[1,4], [2,5], [3,6]]
 */
 
 var transpose = function(M) {
+    /*
     if(M.length==0){
         return [];
     }
@@ -25,4 +26,5 @@ var transpose = function(M) {
         }
     }
     return newM;
+    */
 };

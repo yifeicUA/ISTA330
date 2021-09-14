@@ -13,6 +13,7 @@ output: 3
 */
 
 var d_integer = function(input) {
+    /*
     for (let i = 1; i <= input.length; i++) {
         let num = 0;
         for (let j = 0; j <= input.length; j++) {
@@ -26,4 +27,5 @@ var d_integer = function(input) {
         num = 0;
     }
     return -1;
+    */
 };
