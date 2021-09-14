@@ -12,7 +12,6 @@ output: 2
 */
 
 var m_element = function(input) {
-    /*
     let maxNum = 0;
     let maxtimes = 0;
     for (let i = 0; i < input.length; i++) {
@@ -32,5 +31,4 @@ var m_element = function(input) {
         return -1;
     }
     return maxNum;
-    */
 };
