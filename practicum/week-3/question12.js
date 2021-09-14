@@ -9,10 +9,10 @@ Given n, calculate F(n).
 */
 
 var F = function(n) {
-    return F(n);
+    return fibonacci(n);
 };
 
-function F(n){
+function fibonacci(n){
     if(n === 0){
         return 0;
     }
@@ -20,7 +20,7 @@ function F(n){
         return 1;
     }
     else if(n>1){
-        return F(n - 1) + F(n - 2);
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
     else{
         return 0;
