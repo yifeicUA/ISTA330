@@ -17,9 +17,9 @@ output: true
 */
 
 var isMonotonic = function(input) {
-    let sortedarray = new Array();
-    for (let i = 1; i <= input.length; i++) {
-        sortedarray.push(input[i]);
+    let sortedarray = new Array(input.length);
+    for (let i = 0; i <= input.length; i++) {
+        sortedarray[i]=input[i];
     }
     sortedarray = sortedarray.sort(function(a,b){
         return a-b;
