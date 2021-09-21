@@ -51,27 +51,25 @@
              waterlily
        ];
        flowergen();
-       function flowergen(){
-            let curr = document.getElementById("flowersDiv");
-            for(var i=0; i<flowers.length; i++){
-                if(i%2==0){
-                    curr+= "<div class='row'>";
+        let curr = document.getElementById("flowersDiv");
+        for(var i=0; i<flowers.length; i++){
+            if(i%2==0){
+                curr+= "<div class='row'>";
 
-                }
-                curr+= "<div class='col-md-4' style='padding:25px;'>"
-                curr+="<div class='card' style='width:auto'>"
-                curr+="<img class='card-img-top img-thumbnail' src="+ flowers[i].picture +" alt='Card image' style='width:auto;'>"
-                curr+="<div class='card-body'>"
-                curr+="<h4 class='card-title'>"+flowers[i].name +"</h4>"
-                curr+="</div>"
-                curr+="</div>"
-                curr+="</div>";
-                    if(i%2==1){
-                        curr+="</div>";
-                    }
             }
-            innerHTML.appendChild(curr);
-       }
+            curr+= "<div class='col-md-4' style='padding:25px;'>"
+            curr+="<div class='card' style='width:auto'>"
+            curr+="<img class='card-img-top img-thumbnail' src="+ flowers[i].picture +" alt='Card image' style='width:auto;'>"
+            curr+="<div class='card-body'>"
+            curr+="<h4 class='card-title'>"+flowers[i].name +"</h4>"
+            curr+="</div>"
+            curr+="</div>"
+            curr+="</div>";
+            if(i%2==1){
+                curr+="</div>";
+            }
+        }
+        Console.console.log("a");
     </script>
 </body>
 </html>
