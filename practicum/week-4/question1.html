@@ -50,14 +50,54 @@
              rose,
              waterlily
        ];
-       
+    
        let curr = document.getElementById("flowersDiv");
+       let numrow = 0;
        for(var i=0; i<flowers.length; i++){
-            if(i%2==0){
-                var addrow = document.createElement('div');
-                addrow.setAttribute('className','row');
-                console.log(addrow);
+            if(i%4==0){
+                numrow+=1;
+                let addrow = document.createElement('div');
+                addrow.setAttribute('class','row');
+                addrow.setAttribute('id',numrow);
+                let addcol = document.createElement('div');
+                addcol.setAttribute('class','col-md-4');
+                let addcard = document.createElement('div');
+                addcard.setAttribute('class','card');
+                let addimg = document.createElement('img');
+                addimg.setAttribute('class','card-img-top img-thumbnail');
+                addimg.src=flowers[i].picture;
+                let addcardbod = document.createElement('div');
+                addcardbod.setAttribute('class','card-body');
+                let addhead = document.createElement('h4');
+                addhead.setAttribute('class','card-title');
+                addhead.innerHTML=flowers[i].name;
+                //console.log(addrow);
+                addcardbod.appendChild(addhead);
+                addcard.appendChild(addcardbod);
+                addcard.appendChild(addimg);
+                addcol.appendChild(addcard);
+                addrow.appendChild(addcol);
                 curr.appendChild(addrow);
+            }
+            else{
+                let addcol = document.createElement('div');
+                addcol.setAttribute('class','col-md-4');
+                let addcard = document.createElement('div');
+                addcard.setAttribute('class','card');
+                let addimg = document.createElement('img');
+                addimg.setAttribute('class','card-img-top img-thumbnail');
+                addimg.src=flowers[i].picture;
+                let addcardbod = document.createElement('div');
+                addcardbod.setAttribute('class','card-body');
+                let addhead = document.createElement('h4');
+                addhead.setAttribute('class','card-title');
+                addhead.innerHTML=flowers[i].name;
+                //console.log(addrow);
+                addcardbod.appendChild(addhead);
+                addcard.appendChild(addcardbod);
+                addcard.appendChild(addimg);
+                addcol.appendChild(addcard);
+                document.getElementById(numrow).appendChild(addcol);
             }
 
        }
