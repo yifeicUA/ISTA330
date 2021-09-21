@@ -60,7 +60,7 @@
                 addrow.setAttribute('class','row');
                 addrow.setAttribute('id',numrow);
                 let addcol = document.createElement('div');
-                addcol.setAttribute('class','col-md-4');
+                addcol.setAttribute('class','col-ms-4');
                 let addcard = document.createElement('div');
                 addcard.setAttribute('class','card');
                 let addimg = document.createElement('img');
@@ -73,8 +73,8 @@
                 addhead.innerHTML=flowers[i].name;
                 //console.log(addrow);
                 addcardbod.appendChild(addhead);
-                addcard.appendChild(addcardbod);
                 addcard.appendChild(addimg);
+                addcard.appendChild(addcardbod);
                 addcol.appendChild(addcard);
                 addrow.appendChild(addcol);
                 curr.appendChild(addrow);
@@ -94,8 +94,8 @@
                 addhead.innerHTML=flowers[i].name;
                 //console.log(addrow);
                 addcardbod.appendChild(addhead);
-                addcard.appendChild(addcardbod);
                 addcard.appendChild(addimg);
+                addcard.appendChild(addcardbod);
                 addcol.appendChild(addcard);
                 document.getElementById(numrow).appendChild(addcol);
             }
