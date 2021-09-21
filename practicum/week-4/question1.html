@@ -52,10 +52,11 @@
        ];
        flowergen();
        function flowergen(){
+            let curr = document.getElementById("flowersDiv");
             for(var i=0; i<flowers.length; i++){
-                let curr = document.getElementById("flowersDiv").innerHTML;
                 if(i%2==0){
-                    curr += "<div class='row'>";
+                    curr+= "<div class='row'>";
+
                 }
                 curr+= "<div class='col-md-4' style='padding:25px;'>"
                 curr+="<div class='card' style='width:auto'>"
@@ -69,6 +70,7 @@
                         curr+="</div>";
                     }
             }
+            innerHTML.appendChild(curr);
        }
     </script>
 </body>
