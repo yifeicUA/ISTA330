@@ -53,8 +53,8 @@
        ];
 
        for(var i=0; i<flowers.length; i++){
+           let curr = document.getElementById("flowersDiv").innerHTML;
            if(i%2==0){
-               let curr = document.getElementById("flowersDiv").innerHTML;
                curr += "<div class='row'>";
            }
            curr+= "<div class='col-md-4' style='padding:25px;'>"
