@@ -50,7 +50,20 @@
              rose,
              waterlily
        ];
-        let curr = document.getElementById("flowersDiv");
+       /*
+       let curr = document.getElementById("flowersDiv");
+       for(var i=0; i<flowers.length; i++){
+            if(i%2==0){
+                var addrow = document.createElement('div');
+                addrow.setAttribute('className','row');
+
+            }
+
+       }
+       */
+
+       
+        let curr = "";
         for(var i=0; i<flowers.length; i++){
             if(i%2==0){
                 curr+= "<div class='row'>";
@@ -70,6 +83,7 @@
         }
         document.getElementById("flowersDiv")=curr;
         console.log(curr);
+        
     </script>
 </body>
 </html>
