@@ -120,8 +120,8 @@
                             console.log(i);
                             addcol.setAttribute('id',flowers[i].name);
                             //addcol.setAttribute('onclick',function(){console.log(flowers[i].name)});
-                            addcol.onclick = function(){console.log(flowers[i].name)}
-                            //addcol.onclick = reorgFlowers(flowers[i].name);
+                            //addcol.onclick = function(){console.log(flowers[i].name)}
+                            addcol.onclick = function(){reorgFlowers(flowers[i].name)};
                             //addcol.addEventListener("click",reorgFlowers());
                             let addcard = document.createElement('div');
                             addcard.setAttribute('class','card');
@@ -147,8 +147,8 @@
                             addcol.setAttribute('class','col-ms-4');
                             addcol.setAttribute('id',flowers[i].name);
                             //addcol.setAttribute('onclick',function(){console.log(flowers[i].name)});
-                            addcol.onclick = function(){console.log(flowers[i].name)}
-                            //addcol.onclick = reorgFlowers(addcol.id);
+                            //addcol.onclick = function(){console.log(flowers[i].name)}
+                            addcol.onclick = function(){reorgFlowers(flowers[i].name)};
                             //addcol.addEventListener("click",reorgFlowers());
                             let addcard = document.createElement('div');
                             addcard.setAttribute('class','card');
