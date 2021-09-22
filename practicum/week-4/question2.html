@@ -171,7 +171,11 @@
         }
         function reorgFlowers(flname){
             let newFlowers = [];
-            newFlowers.push(flname);
+            for(let i=0; i<flowers.length; i++){
+                if(flowers[i].name == flname){
+                    newFlowers.push(flowers[i]);
+                }
+            }
             console.log(newFlowers);
             let curr = flname;
             let smallerAL = [];
