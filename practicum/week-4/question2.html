@@ -107,7 +107,7 @@
         function makeflowers(){
             let curr = document.getElementById("flowersDiv");
             let numrow = 0;
-                for(var i=0; i<flowers.length; i++){
+                for(let i=0; i<flowers.length; i++){
                         if(i%4==0){
                             numrow+=1;
                             let addrow = document.createElement('div');
@@ -116,6 +116,7 @@
                             let addcol = document.createElement('div');
                             addcol.setAttribute('class','col-ms-4');
                             addcol.setAttribute('id',flowers[i].name);
+                            addcol.onclick = reorgFlowers(flowers[i].name);
                             let addcard = document.createElement('div');
                             addcard.setAttribute('class','card');
                             let addimg = document.createElement('img');
@@ -159,6 +160,32 @@
                         }
 
                 }
+        }
+        function makeflowers(flname){
+            let newFlowers = [];
+            for(let i=0; i<flowers.length; i++){
+                if(flowers[i].name == flname){
+                    newFlowers.push(flowers[i]);
+                }
+            }
+            let curr = newFlowers[newFlowers.length-1].name;
+            let smallerAL = [];
+            let sortedflowers = flowers.sort(function(a,b){
+            return a-b;})
+            for(let i=0; i<sortedflowers.length; i++){
+                if(sortedflowers[i].name == flname){
+                    continue;
+                }else if(sortedflowers[i].name < flname){
+                    smallerAL.push(sortedflowers[i]);
+                }else{
+                    newFlowers.push(sortedflowers[i]);
+                }
+            }
+            for(let i=0; i<smallerAL.length; i++){
+                newFlowers.push(smallerAL[i]);
+            }
+            flowers=newFlowers;
+            makeflowers();
         }
     </script>
 </body>
