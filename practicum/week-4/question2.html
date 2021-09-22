@@ -163,7 +163,8 @@
         }
         function makeflowers(flname){
             let newFlowers = [flname];
-            let curr = newFlowers[newFlowers.length-1].name;
+            console.log(newFlowers);
+            let curr = flname;
             let smallerAL = [];
             let sortedflowers = flowers.sort(function(a,b){
             return a-b;})
