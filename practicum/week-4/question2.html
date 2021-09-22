@@ -119,6 +119,7 @@
                             console.log(flowers);
                             console.log(i);
                             addcol.setAttribute('id',flowers[i].name);
+                            addcol.setAttribute('onclick',reorgFlowers(flowers[i].name));
                             //addcol.onclick = reorgFlowers(flowers[i].name);
                             //addcol.addEventListener("click",reorgFlowers());
                             let addcard = document.createElement('div');
@@ -144,6 +145,7 @@
                             let addcol = document.createElement('div');
                             addcol.setAttribute('class','col-ms-4');
                             addcol.setAttribute('id',flowers[i].name);
+                            addcol.setAttribute('onclick',reorgFlowers(flowers[i].name));
                             //addcol.onclick = reorgFlowers(addcol.id);
                             //addcol.addEventListener("click",reorgFlowers());
                             let addcard = document.createElement('div');
@@ -167,18 +169,18 @@
 
                 }
         }
-        function reorgFlowers(){
+        function reorgFlowers(flname){
             let newFlowers = [];
-            newFlowers.push(this.id);
+            newFlowers.push(flname);
             console.log(newFlowers);
-            let curr = this.id;
+            let curr = flname;
             let smallerAL = [];
             let sortedflowers = flowers.sort(function(a,b){
             return a-b;})
             for(let i=0; i<sortedflowers.length; i++){
-                if(sortedflowers[i].name == this.id){
+                if(sortedflowers[i].name == flname){
                     continue;
-                }else if(sortedflowers[i].name < this.id){
+                }else if(sortedflowers[i].name < flname){
                     smallerAL.push(sortedflowers[i]);
                 }else{
                     newFlowers.push(sortedflowers[i]);
