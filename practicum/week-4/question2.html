@@ -180,7 +180,7 @@
             let curr = flname;
             let smallerAL = [];
             let sortedflowers = flowers.sort(function(a,b){
-            return a-b;})
+            return a.name-b.name;})
             for(let i=0; i<sortedflowers.length; i++){
                 if(sortedflowers[i].name == flname){
                     continue;
