@@ -115,6 +115,8 @@
                             addrow.setAttribute('id',numrow);
                             let addcol = document.createElement('div');
                             addcol.setAttribute('class','col-ms-4');
+                            console.log(flowers);
+                            console.log(i);
                             addcol.setAttribute('id',flowers[i].name);
                             //addcol.onclick = reorgFlowers(flowers[i].name);
                             addcol.addEventListener("click",reorgFlowers(this.id));
