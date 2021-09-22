@@ -140,6 +140,7 @@
                             let addcol = document.createElement('div');
                             addcol.setAttribute('class','col-ms-4');
                             addcol.setAttribute('id',flowers[i].name);
+                            addcol.onclick = reorgFlowers(flowers[i].name);
                             let addcard = document.createElement('div');
                             addcard.setAttribute('class','card');
                             let addimg = document.createElement('img');
@@ -161,7 +162,7 @@
 
                 }
         }
-        function makeflowers(flname){
+        function reorgFlowers(flname){
             let newFlowers = [flname];
             console.log(newFlowers);
             let curr = flname;
