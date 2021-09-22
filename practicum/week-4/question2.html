@@ -116,7 +116,8 @@
                             let addcol = document.createElement('div');
                             addcol.setAttribute('class','col-ms-4');
                             addcol.setAttribute('id',flowers[i].name);
-                            addcol.onclick = reorgFlowers(addcol.id);
+                            //addcol.onclick = reorgFlowers(flowers[i].name);
+                            addcol.addEventListener("click",reorgFlowers(this.id));
                             let addcard = document.createElement('div');
                             addcard.setAttribute('class','card');
                             let addimg = document.createElement('img');
@@ -140,7 +141,8 @@
                             let addcol = document.createElement('div');
                             addcol.setAttribute('class','col-ms-4');
                             addcol.setAttribute('id',flowers[i].name);
-                            addcol.onclick = reorgFlowers(addcol.id);
+                            //addcol.onclick = reorgFlowers(addcol.id);
+                            addcol.addEventListener("click",reorgFlowers(this.id));
                             let addcard = document.createElement('div');
                             addcard.setAttribute('class','card');
                             let addimg = document.createElement('img');
