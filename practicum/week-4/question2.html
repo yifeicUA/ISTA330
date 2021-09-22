@@ -162,12 +162,7 @@
                 }
         }
         function makeflowers(flname){
-            let newFlowers = [];
-            for(let i=0; i<flowers.length; i++){
-                if(flowers[i].name == flname){
-                    newFlowers.push(flowers[i]);
-                }
-            }
+            let newFlowers = [flname];
             let curr = newFlowers[newFlowers.length-1].name;
             let smallerAL = [];
             let sortedflowers = flowers.sort(function(a,b){
