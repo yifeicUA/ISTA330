@@ -108,6 +108,7 @@
             let curr = document.getElementById("flowersDiv");
             let numrow = 0;
                 for(let i=0; i<flowers.length; i++){
+                        console.log(flowers);
                         if(i%4==0){
                             numrow+=1;
                             let addrow = document.createElement('div');
@@ -119,7 +120,7 @@
                             console.log(i);
                             addcol.setAttribute('id',flowers[i].name);
                             //addcol.onclick = reorgFlowers(flowers[i].name);
-                            addcol.addEventListener("click",reorgFlowers(this.id));
+                            addcol.addEventListener("click",reorgFlowers());
                             let addcard = document.createElement('div');
                             addcard.setAttribute('class','card');
                             let addimg = document.createElement('img');
@@ -144,7 +145,7 @@
                             addcol.setAttribute('class','col-ms-4');
                             addcol.setAttribute('id',flowers[i].name);
                             //addcol.onclick = reorgFlowers(addcol.id);
-                            addcol.addEventListener("click",reorgFlowers(this.id));
+                            addcol.addEventListener("click",reorgFlowers());
                             let addcard = document.createElement('div');
                             addcard.setAttribute('class','card');
                             let addimg = document.createElement('img');
@@ -166,17 +167,18 @@
 
                 }
         }
-        function reorgFlowers(flname){
-            let newFlowers = [flname];
+        function reorgFlowers(){
+            let newFlowers = [];
+            newFlowers.push(this.id);
             console.log(newFlowers);
-            let curr = flname;
+            let curr = this.id;
             let smallerAL = [];
             let sortedflowers = flowers.sort(function(a,b){
             return a-b;})
             for(let i=0; i<sortedflowers.length; i++){
-                if(sortedflowers[i].name == flname){
+                if(sortedflowers[i].name == this.id){
                     continue;
-                }else if(sortedflowers[i].name < flname){
+                }else if(sortedflowers[i].name < this.id){
                     smallerAL.push(sortedflowers[i]);
                 }else{
                     newFlowers.push(sortedflowers[i]);
