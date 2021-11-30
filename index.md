@@ -16,4 +16,8 @@
 10. [Week 10](practicum/week-10/index.html)
 
 
+### Projects
+1. [Project 1](projects/project-1/index.html)
+
+
 
