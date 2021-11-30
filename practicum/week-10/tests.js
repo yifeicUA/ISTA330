@@ -69,7 +69,7 @@ window.onload = () => {
         .then(() => fetch(`${api}/quizzes`))
         .then(x => x.json())
         .then(x => {
-            quizId = x[Math.floor(Math.random() * x.length)].id;
+            quizId = x[Math.floor(Math.random() * x.length)].name;
             return x;
         })
         .catch(e => testDiv.innerHTML += `<h2>Error in /quizzes get method: ${e}</h2>`)
@@ -81,7 +81,7 @@ window.onload = () => {
             },
             body: JSON.stringify({
                 quizTaker: testTakerEmail,
-                quizId: quizId,
+                quizName: quizId,
                 score: 5
             })
         }))
