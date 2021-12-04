@@ -13,10 +13,29 @@ window.onload = () => {
     p.innerHTML += `The findnearbyplaces front-end will be available at <a href="${imagequiz_frontend}">${imagequiz_frontend}</a>`;
 
 
+    // get the current location
+    let currentPosition = {};
+    let getLocation = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML += "Geolocation is not supported by this browser.";
+        }
+    }
+    let showPosition = (position) => {
+        currentPosition = position.coords;
+        p.innerHTML += `<br>Current location:<br>Latitude:  ${position.coords.latitude} <br>Longitude:  ${position.coords.longitude}`;
+
+    }
+    getLocation();
+
+
+
+    // test the API
     let names = ['Fred', 'John', 'Philip', 'Pablo', 'Toby', 'Rio'];
     let categories = ['Flower Shop', 'Flower Delivery', 'Flowers and Gifts', 'Horse Riding', 'Horse Racing', 'Horse Boarding'];
     let places = ['Lily', 'Saddle', 'Casas', 'Buds', 'Bloom', 'Yosi'];
-    
+
     let random = Math.floor(Math.random() * names.length);
     let api = `https://${username}-findnearbyplaces.herokuapp.com`;
     //let api = `http://localhost:4002`;
@@ -24,7 +43,7 @@ window.onload = () => {
     let email = firstname + '@gmail.com';
     let password = "123";
     let category = categories[random];
-    let place = places[random];    
+    let place = places[random];
     let latitude = 32.222607 + random;
     let longitude = -110.974709 + random;
     let description = 'Family-owned and operated.';
@@ -147,7 +166,7 @@ window.onload = () => {
         .then(x => {
             if (x.done) {
                 testDiv.innerHTML += `<h2>
-                The review for ${place} was added successfully.
+                A review for ${place} with a rating of 4 was added successfully.
                 The review id is ${x.id}.
                 </h2>`;
                 reviewId = x.id;
@@ -158,7 +177,64 @@ window.onload = () => {
                 </h2>`;
             }
         })
-        .catch(e => testDiv.innerHTML += `<h2>Error in /review method: ${e}</h2>`)
+        .catch(e => testDiv.innerHTML += `<h2>Error in first /review method: ${e}</h2>`)
+        .then(() => fetch(`${api}/review`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                place_id: placeId, comment: 'very good!', rating: 5
+            })
+        }))
+        .then(x => x.json())
+        .then(x => {
+            if (x.done) {
+                testDiv.innerHTML += `<h2>
+                A review for ${place} with a rating of 5 was added successfully.
+                The review id is ${x.id}.
+                </h2>`;
+                reviewId = x.id;
+            } else {
+                testDiv.innerHTML += `<h2>
+                The review could not be added to the system.
+                There was an error on the server: ${x.message}            
+                </h2>`;
+            }
+        })
+        .catch(e => testDiv.innerHTML += `<h2>Error in second /review method: ${e}</h2>`)
+        .then(() => fetch(`${api}/search?search_term=${place}&user_location=${currentPosition.latitude},${currentPosition.longitude}`,
+        ))
+        .then(x => x.json())
+        .then(x => {
+            if (x.done) {
+                testDiv.innerHTML += `<h2>
+                For the query search_term=${place}&user_location=${currentPosition.latitude},${currentPosition.longitude}
+                the seach API returned ${x.result.length} records.
+                The results:
+                </h2>`;
+                if(x.result.length > 0){
+                    testDiv.innerHTML += `<ol>`;
+                   for (const element of result) {
+                       testDiv.innerHTML += `<li>`;
+                       let p = [];
+                       for (const key in element) {
+                         p.push(`${key}: ${element[key]}`);
+                       }
+                       testDiv.innerHTML += p.join(',');
+                       testDiv.innerHTML += `</li>`;
+                   }
+                    testDiv.innerHTML += `</ol>`;
+                }
+            } else {
+                testDiv.innerHTML += `<h2>
+                The search could not be completed.
+                There was an error on the server: ${x.message}            
+                </h2>`;
+            }
+        })
+        .catch(e => testDiv.innerHTML += `<h2>Error in /search method: ${e}</h2>`)
         .then(() => fetch(`${api}/place`, {
             method: 'PUT',
             headers: {
@@ -180,7 +256,7 @@ window.onload = () => {
                 testDiv.innerHTML += `<h2>
                 The place ${place} was updated successfully at ${Date.now()}.                
                 </h2>`;
-                
+
             } else {
                 testDiv.innerHTML += `<h2>
                 The place could not be updated.
@@ -220,7 +296,7 @@ window.onload = () => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            }           
+            }
         }))
         .then(x => x.json())
         .then(x => {
@@ -228,7 +304,7 @@ window.onload = () => {
                 testDiv.innerHTML += `<h2>
                 The place ${place} was deleted successfully at ${Date.now()}.                
                 </h2>`;
-                
+
             } else {
                 testDiv.innerHTML += `<h2>
                 The place could not be deleted.
@@ -242,7 +318,7 @@ window.onload = () => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            }           
+            }
         }))
         .then(x => x.json())
         .then(x => {
@@ -250,7 +326,7 @@ window.onload = () => {
                 testDiv.innerHTML += `<h2>
                 The review number ${reviewId} for place ${place} was deleted successfully at ${Date.now()}.                
                 </h2>`;
-                
+
             } else {
                 testDiv.innerHTML += `<h2>
                 The review could not be deleted.
